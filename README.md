@@ -1,4 +1,4 @@
-# Spike Utils
+# Spike Util
 
 [![npm](http://img.shields.io/npm/v/spike-utils.svg?style=flat)](https://badge.fury.io/js/spike-utils) [![tests](http://img.shields.io/travis/static-dev/spike-utils/master.svg?style=flat)](https://travis-ci.org/static-dev/spike-utils) [![dependencies](http://img.shields.io/david/static-dev/spike-utils.svg?style=flat)](https://david-dm.org/static-dev/spike-utils) [![coverage](http://img.shields.io/coveralls/static-dev/spike-utils.svg?style=flat)](https://coveralls.io/github/static-dev/spike-utils)
 

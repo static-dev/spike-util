@@ -1,6 +1,6 @@
-# Contributing to spike-utils
+# Contributing to Spike Util
 
-Hello there! First of all, thanks for being interested in spike-utils and helping out. We all think you are awesome, and by contributing to open source projects, you are making the world a better place. That being said, there are a few ways to make the process of contributing code to spike-utils smoother, detailed below:
+Hello there! First of all, thanks for being interested in spike-util and helping out. We all think you are awesome, and by contributing to open source projects, you are making the world a better place. That being said, there are a few ways to make the process of contributing code to spike-util smoother, detailed below:
 
 ### Filing Issues
 
