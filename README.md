@@ -1,6 +1,6 @@
 # Spike Util
 
-[![npm](http://img.shields.io/npm/v/spike-utils.svg?style=flat)](https://badge.fury.io/js/spike-utils) [![tests](http://img.shields.io/travis/static-dev/spike-utils/master.svg?style=flat)](https://travis-ci.org/static-dev/spike-utils) [![dependencies](http://img.shields.io/david/static-dev/spike-utils.svg?style=flat)](https://david-dm.org/static-dev/spike-utils) [![coverage](http://img.shields.io/coveralls/static-dev/spike-utils.svg?style=flat)](https://coveralls.io/github/static-dev/spike-utils)
+[![npm](http://img.shields.io/npm/v/spike-util.svg?style=flat)](https://badge.fury.io/js/spike-util) [![tests](http://img.shields.io/travis/static-dev/spike-util/master.svg?style=flat)](https://travis-ci.org/static-dev/spike-util) [![dependencies](http://img.shields.io/david/static-dev/spike-util.svg?style=flat)](https://david-dm.org/static-dev/spike-util) [![coverage](http://img.shields.io/coveralls/static-dev/spike-util.svg?style=flat)](https://coveralls.io/github/static-dev/spike-util)
 
 A grab bag of utilities for spike plugins
 
@@ -14,14 +14,14 @@ If you are making a spike plugin, check out the documentation below, and one of 
 
 ### Installation
 
-`npm install spike-utils -S`
+`npm install spike-util -S`
 
 ### Usage
 
 All of the utilities require access to spike/webpack's `options` in order to work correctly. As such, the plugins are bundled in a class that must be initialized with the config.
 
 ```js
-const SpikeUtils = require('spike-utils')
+const SpikeUtils = require('spike-util')
 
 // webpack plugin apply function
 apply (compiler) {

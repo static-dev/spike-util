@@ -21,19 +21,12 @@ test.cb('EVERYTHING WORKS', (t) => {
 
   // TODO: this also needs to be tested with watch mode
   plugin.on('runAll', () => { t.truthy(true) })
-
   plugin.on('removeAssets', () => { t.truthy(true) })
-
-  plugin.on('getOutputPath', (p) => {
-    t.truthy(p, 'index.txt')
-  })
+  plugin.on('getOutputPath', (p) => { t.truthy(p, 'index.txt') })
+  plugin.on('isFileIgnored', (r) => { t.truthy(r) })
 
   plugin.on('resolveRelativeSourcePath', (p) => {
     t.truthy(p.replace(fixturePath, '') === '/views/index.txt')
-  })
-
-  plugin.on('isFileIgnored', (r) => {
-    t.truthy(r)
   })
 
   const project = new Spike({
