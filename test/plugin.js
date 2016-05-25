@@ -9,24 +9,25 @@ module.exports = class TestPlugin extends EventEmitter {
 
   apply (compiler) {
     this.util = new SpikeUtil(compiler.options)
-    // this.util.runAll(compiler, this.run.bind(this))
+    this.util.runAll(compiler, this.run.bind(this))
+
+    this.emit('getOutputPath', this.util.getOutputPath(this.injectFile))
+    this.emit('resolveRelativeSourcePath', this.util.resolveRelativeSourcePath('index.txt'))
+    this.emit('isFileIgnored', this.util.isFileIgnored('/views/ignoreme.txt'))
 
     compiler.plugin('make', (compilation, done) => {
-      // return done()
-      try {
-        this.util.addFilesAsWebpackEntries(compilation, [this.injectFile])
-          .then(() => this.emit('entries', compilation))
-          .then(() => done())
-          .catch(console.error)
-      } catch (e) {
-        // console.log(e)
-      }
+      this.util.addFilesAsWebpackEntries(compilation, this.injectFile)
+        .then(() => this.emit('addFilesAsWebpackEntries', compilation))
+        .done(() => done())
     })
 
-    // getOutputPath
-    // removeAssets
-    // resolveRelativeSourcePath
-    // isFileIgnored
+    compiler.plugin('compilation', (compilation) => {
+      compilation.plugin('optimize-chunk-assets', (chunks, done) => {
+        this.util.removeAssets(compilation, this.injectFile)
+        this.emit('removeAssets')
+        done()
+      })
+    })
   }
 
   run (compilation, done) {

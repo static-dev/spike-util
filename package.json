@@ -11,12 +11,17 @@
     ]
   },
   "bugs": "https://github.com/static-dev/spike-utils/issues",
+  "dependencies": {
+    "glob": "^7.0.3",
+    "micromatch": "^2.3.8",
+    "when": "^3.7.7"
+  },
   "devDependencies": {
     "ava": "0.14.x",
     "coveralls": "2.x",
     "nyc": "6.x",
     "source-loader": "0.0.1",
-    "spike-core": "^0.3.0",
+    "spike-core": "^0.4.0",
     "standard": "7.x"
   },
   "engines": {
@@ -25,17 +30,14 @@
   "homepage": "https://github.com/static-dev/spike-utils",
   "license": "MIT",
   "main": "lib",
+  "peerDependencies": {
+    "webpack": "1.x"
+  },
   "repository": "static-dev/spike-utils",
   "scripts": {
-    "test": "ava",
-    "lint": "standard",
     "coverage": "nyc ava",
-    "coveralls": "nyc --reporter=lcov ava && cat ./coverage/lcov.info | coveralls"
-  },
-  "dependencies": {
-    "glob": "^7.0.3",
-    "micromatch": "^2.3.8",
-    "webpack": "^1.12.10",
-    "when": "^3.7.7"
+    "coveralls": "nyc --reporter=lcov ava && cat ./coverage/lcov.info | coveralls",
+    "lint": "standard",
+    "test": "ava"
   }
 }

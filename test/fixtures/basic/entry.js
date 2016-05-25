@@ -1,1 +1,1 @@
-console.log('wow')
+require('./views/index.txt')
