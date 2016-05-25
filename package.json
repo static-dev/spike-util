@@ -28,6 +28,10 @@
     "node": ">= 6.0.0"
   },
   "homepage": "https://github.com/static-dev/spike-utils",
+  "keywords": [
+    "spike",
+    "utility"
+  ],
   "license": "MIT",
   "main": "lib",
   "peerDependencies": {
