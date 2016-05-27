@@ -12,13 +12,14 @@ module.exports = class TestPlugin extends EventEmitter {
     this.util.runAll(compiler, this.run.bind(this))
 
     this.emit('getOutputPath', this.util.getOutputPath(this.injectFile))
-    this.emit('resolveRelativeSourcePath', this.util.resolveRelativeSourcePath('index.txt'))
+    this.emit('getSourcePath', this.util.getSourcePath('index.txt'))
     this.emit('isFileIgnored', this.util.isFileIgnored('/views/ignoreme.txt'))
+    this.emit('matchGlobs', this.util.matchGlobs(['a/foo', 'a/bar', 'b/foo'], ['a/*']))
 
     compiler.plugin('make', (compilation, done) => {
       this.util.addFilesAsWebpackEntries(compilation, this.injectFile)
         .then(() => this.emit('addFilesAsWebpackEntries', compilation))
-        .done(() => done())
+        .done(() => done(), done)
     })
 
     compiler.plugin('compilation', (compilation) => {

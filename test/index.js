@@ -12,7 +12,7 @@ test.cb('EVERYTHING WORKS', (t) => {
     injectFile: path.join(fixturePath, 'views/index.txt')
   })
 
-  t.plan(7)
+  t.plan(10)
 
   plugin.on('addFilesAsWebpackEntries', (comp) => {
     const mod = comp.modules.find((m) => m.rawRequest === './views/index.txt')
@@ -22,11 +22,16 @@ test.cb('EVERYTHING WORKS', (t) => {
   // TODO: this also needs to be tested with watch mode
   plugin.on('runAll', () => { t.truthy(true) })
   plugin.on('removeAssets', () => { t.truthy(true) })
-  plugin.on('getOutputPath', (p) => { t.truthy(p, 'index.txt') })
   plugin.on('isFileIgnored', (r) => { t.truthy(r) })
+  plugin.on('matchGlobs', (r) => { t.truthy(r.length === 2) })
+  plugin.on('getOutputPath', (p) => {
+    t.truthy(p.relative, 'index.txt')
+    t.truthy(p.absolute.match('public'))
+  })
 
-  plugin.on('resolveRelativeSourcePath', (p) => {
-    t.truthy(p.replace(fixturePath, '') === '/views/index.txt')
+  plugin.on('getSourcePath', (p) => {
+    t.truthy(p.relative === 'views/index.txt')
+    t.falsy(p.absolute.match('public'))
   })
 
   const project = new Spike({
