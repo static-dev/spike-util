@@ -24,7 +24,7 @@ module.exports = class TestPlugin extends EventEmitter {
 
     compiler.plugin('compilation', (compilation) => {
       compilation.plugin('optimize-chunk-assets', (chunks, done) => {
-        this.util.removeAssets(compilation, this.injectFile)
+        this.util.removeAssets(compilation, this.injectFile, chunks)
         this.emit('removeAssets')
         done()
       })
