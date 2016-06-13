@@ -41,7 +41,8 @@ test.cb('EVERYTHING WORKS', (t) => {
       { test: /\.txt$/, loader: 'source' }
     ]},
     ignore: ['**/views/ignoreme.txt'],
-    plugins: [plugin]
+    plugins: [plugin],
+    devtool: 'source-map'
   })
 
   project.on('error', t.fail)
