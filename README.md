@@ -31,12 +31,15 @@ apply (compiler) {
 
 With it initialized, you can use any of the following functions:
 
-- `addFilesAsWebpackEntries(compilation, files)` - adds one or more files to webpack's pipeline so that it is processed without having to be `require`'d in an entry.
-- `getOutputPath(path)` - given a relative or absolute path to a file in a spike project, return it's output path relative to the project root.
-- `removeAssets(compilation, files)` - removes assets from webpack's pipeline so that they are not written as entries.
-- `resolveRelativeSourcePath(path)` - resolves a relative output path from a spike project to an absolute path to the source file.
-- `isFileIgnored(file)` - given a path to a file in a spike project, returns a boolean for whether the file is ignored or not.
-- `runAll(compiler, cb)` - run the given function when webpack's compiler initializes, bound to both the `run` and `run-watch` events.
+- `util.addFilesAsWebpackEntries(compilation, files)` - adds one or more files to webpack's pipeline so that it is processed without having to be `require`'d in an entry.
+- `util.getOutputPath(path)` - given a relative or absolute path to a file in a spike project, return it's output path relative to the project root.
+- `util.removeAssets(compilation, files)` - removes assets from webpack's pipeline so that they are not written as entries.
+- `util.resolveRelativeSourcePath(path)` - resolves a relative output path from a spike project to an absolute path to the source file.
+- `util.isFileIgnored(file)` - given a path to a file in a spike project, returns a boolean for whether the file is ignored or not.
+- `util.runAll(compiler, cb)` - run the given function when webpack's compiler initializes, bound to both the `run` and `run-watch` events.
+
+And some static methods:
+- `SpikeUtils.filePathFromLoader(loaderContext)` - pass `this` inside a loader and it will return a file object with the absolute and relative paths to the current file being processed.
 
 For more details on any given function, check out the source! I would never say this for any other library, but this is only one simple file, with fairly small functions that are extremely thoroughly documented, so I think it's worth jumping in.
 
