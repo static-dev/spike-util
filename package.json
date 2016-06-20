@@ -23,7 +23,7 @@
     "coveralls": "2.x",
     "nyc": "^6.6.1",
     "source-loader": "^0.2.0",
-    "spike-core": "^0.7.0",
+    "spike-core": "^0.8.0",
     "standard": "^7.1.2"
   },
   "engines": {
