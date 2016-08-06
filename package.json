@@ -19,7 +19,7 @@
     "when": "^3.7.7"
   },
   "devDependencies": {
-    "ava": "^0.15.2",
+    "ava": "^0.16.0",
     "coveralls": "2.x",
     "nyc": "^7.0.0",
     "source-loader": "^0.2.0",
