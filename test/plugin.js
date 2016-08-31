@@ -16,12 +16,6 @@ module.exports = class TestPlugin extends EventEmitter {
     this.emit('isFileIgnored', this.util.isFileIgnored('/views/ignoreme.txt'))
     this.emit('matchGlobs', this.util.matchGlobs(['a/foo', 'a/bar', 'b/foo'], ['a/*']))
 
-    compiler.plugin('make', (compilation, done) => {
-      this.util.addFilesAsWebpackEntries(compilation, this.injectFile)
-        .then(() => this.emit('addFilesAsWebpackEntries', compilation))
-        .done(() => done(), done)
-    })
-
     compiler.plugin('compilation', (compilation) => {
       compilation.plugin('optimize-chunk-assets', (chunks, done) => {
         this.util.removeAssets(compilation, this.injectFile, chunks)
