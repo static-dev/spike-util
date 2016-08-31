@@ -14,12 +14,7 @@ test.cb('EVERYTHING WORKS', (t) => {
   })
   const loaderEmitter = new EventEmitter()
 
-  t.plan(12)
-
-  plugin.on('addFilesAsWebpackEntries', (comp) => {
-    const mod = comp.modules.find((m) => m.rawRequest === './views/index.txt')
-    t.truthy(String(mod._src).trim() === 'wow', true)
-  })
+  t.plan(11)
 
   // TODO: this also needs to be tested with watch mode
   plugin.on('runAll', () => { t.truthy(true) })
