@@ -27,7 +27,7 @@ test.cb('EVERYTHING WORKS', (t) => {
   plugin.on('isFileIgnored', (r) => { t.truthy(r) })
   plugin.on('matchGlobs', (r) => { t.truthy(r.length === 2) })
   plugin.on('getOutputPath', (p) => {
-    t.truthy(p.relative, 'index.txt')
+    t.truthy(p.relative === 'index.txt')
     t.truthy(p.absolute.match('public'))
   })
 
