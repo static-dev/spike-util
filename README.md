@@ -37,6 +37,7 @@ With it initialized, you can use any of the following functions:
 - `util.resolveRelativeSourcePath(path)` - resolves a relative output path from a spike project to an absolute path to the source file.
 - `util.isFileIgnored(file)` - given a path to a file in a spike project, returns a boolean for whether the file is ignored or not.
 - `util.runAll(compiler, cb)` - run the given function when webpack's compiler initializes, bound to both the `run` and `run-watch` events.
+- `util.pathsToRegex(paths)` - given an array of file paths, builds a regex that will match only those paths
 
 And some static methods:
 - `SpikeUtils.filePathFromLoader(loaderContext)` - pass `this` inside a loader and it will return a file object with the absolute and relative paths to the current file being processed.
