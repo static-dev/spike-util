@@ -40,9 +40,6 @@ With it initialized, you can use any of the following functions:
 - `util.pathsToRegex(paths)` - given an array of file paths, builds a regex that will match only those paths
 - `util.modifyOutputPath(file, outPath)` - Given an absolute or relative (to the project root) path to a file that's being processed by spike, changes the output path to absolute or relative (recommended) path provided. Recommended to use in the `emit` plugin stage.
 
-And some static methods:
-- `SpikeUtils.filePathFromLoader(loaderContext)` - pass `this` inside a loader and it will return a file object with the absolute and relative paths to the current file being processed.
-
 For more details on any given function, check out the source! I would never say this for any other library, but this is only one simple file, with fairly small functions that are extremely thoroughly documented, so I think it's worth jumping in.
 
 ### License & Contributing
