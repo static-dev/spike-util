@@ -3,7 +3,6 @@ const path = require('path')
 const fs = require('fs')
 const Spike = require('spike-core')
 const TestPlugin = require('./plugin')
-const EventEmitter = require('events')
 
 const fixtures = path.join(__dirname, 'fixtures')
 
@@ -12,9 +11,8 @@ test.cb('EVERYTHING WORKS', (t) => {
   const plugin = new TestPlugin({
     injectFile: path.join(fixturePath, 'views/index.txt')
   })
-  const loaderEmitter = new EventEmitter()
 
-  t.plan(12)
+  t.plan(10)
 
   plugin.on('addFilesAsWebpackEntries', (comp) => {
     const mod = comp.modules.find((m) => m.rawRequest === './views/index.txt')
@@ -36,19 +34,9 @@ test.cb('EVERYTHING WORKS', (t) => {
     t.falsy(p.absolute.match('public'))
   })
 
-  loaderEmitter.on('filePathFromLoader', (f) => {
-    t.regex(f.absolute, /basic\/views\/index.txt/)
-    t.truthy(f.relative === 'views/index.txt')
-  })
-
   const project = new Spike({
     root: fixturePath,
     entry: { main: ['./entry.js'] },
-    resolveLoader: { alias: { test: path.join(__dirname, 'loader.js') } },
-    module: {
-      loaders: [{ test: /\.txt$/, loader: 'source!test', skipSpikeProcessing: true }]
-    },
-    loaderEmitter: loaderEmitter,
     ignore: ['**/views/ignoreme.txt'],
     plugins: [plugin],
     devtool: 'source-map'
