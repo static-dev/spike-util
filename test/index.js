@@ -63,6 +63,7 @@ test.cb('EVERYTHING WORKS', (t) => {
     } catch (err) {
       t.truthy(err.code === 'ENOENT')
     }
+    fs.accessSync(path.join(fixturePath, 'public/changed.html'))
     t.end()
   })
 

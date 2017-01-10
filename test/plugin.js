@@ -29,6 +29,11 @@ module.exports = class TestPlugin extends EventEmitter {
         done()
       })
     })
+
+    compiler.plugin('emit', (compilation, done) => {
+      this.util.modifyOutputPath('views/changepath.html', 'views/changed.html')
+      done()
+    })
   }
 
   run (compilation, done) {
