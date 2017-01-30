@@ -37,7 +37,7 @@
   "license": "MIT",
   "main": "lib",
   "peerDependencies": {
-    "webpack": "1.x"
+    "webpack": "^2.2.1"
   },
   "repository": "static-dev/spike-utils",
   "scripts": {
