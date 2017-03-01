@@ -24,7 +24,7 @@
     "nyc": "^10.0.0",
     "source-loader": "^0.2.0",
     "spike-core": "^0.13.1",
-    "standard": "^8.0.0"
+    "standard": "^9.0.0"
   },
   "engines": {
     "node": ">= 6.0.0"
