@@ -36,9 +36,6 @@
   ],
   "license": "MIT",
   "main": "lib",
-  "peerDependencies": {
-    "webpack": "2.x"
-  },
   "repository": "static-dev/spike-utils",
   "scripts": {
     "coverage": "nyc ava",
