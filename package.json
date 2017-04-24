@@ -13,7 +13,7 @@
   },
   "bugs": "https://github.com/static-dev/spike-utils/issues",
   "dependencies": {
-    "filewrap": "0.1.0",
+    "filewrap": "1.0.0",
     "glob": "^7.0.4",
     "micromatch": "^2.3.8",
     "when": "^3.7.7"
