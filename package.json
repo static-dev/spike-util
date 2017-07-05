@@ -15,7 +15,7 @@
   "dependencies": {
     "filewrap": "1.0.0",
     "glob": "^7.0.4",
-    "micromatch": "^2.3.8",
+    "micromatch": "^3.0.0",
     "when": "^3.7.7"
   },
   "devDependencies": {
